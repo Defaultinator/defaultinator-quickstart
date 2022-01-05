@@ -1,0 +1,6 @@
+[submodule "defaultinator-api"]
+	path = defaultinator-api
+	url = git@github.com:Defaultinator/defaultinator-api.git
+[submodule "defaultinator-ui"]
+	path = defaultinator-ui
+	url = git@github.com:Defaultinator/defaultinator-ui.git
