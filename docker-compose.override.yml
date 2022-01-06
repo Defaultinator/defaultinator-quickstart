@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  api:
+    build: ./defaultinator-api
+    ports:
+      - "3001:3001"
+    environment:
+      - DATABASE_URI=mongodb://mongo:27017/defaultinator
+  ui:
+    build: ./defaultinator-ui
+    ports:
+      - "3000:3000"
+    environment:
+      - API_BASE_URI=http://api
+  mongo:
+    ports:
+      - "27017:27017"
+    volumes:
+      - defaultinator-db:/data/db:rw
+volumes:
+  defaultinator-db:
+    driver: local

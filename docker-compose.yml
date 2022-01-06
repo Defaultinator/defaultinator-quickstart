@@ -1,27 +1,12 @@
 version: "3.9"
 services:
   api:
-    build: ./defaultinator-api
-    ports:
-      - "3001:3001"
-    environment:
-      - DATABASE_URI=mongodb://mongo:27017/defaultinator
+    image: defaultinator-api
     depends_on:
       - mongo
   ui:
-    build: ./defaultinator-ui
-    ports:
-      - "3000:3000"
-    environment:
-      - API_BASE_URI=http://api
+    image: defaultinator-ui
     depends_on:
       - api
   mongo:
-    image: "mongo:latest"
-    ports:
-      - "27017:27017"
-    volumes:
-      - defaultinator-db:/data/db:rw
-volumes:
-  defaultinator-db:
-    driver: local
+    image: mongo:latest
