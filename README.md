@@ -12,22 +12,27 @@ If you cloned the project and forgot `--recurse-submodules`, you may run the fol
 git submodule update --init --recursive
 ```
 
-## Build
-
-```
-$ docker-compose build
-```
-
-## Run
-
 ### Base configuration
+#### Build and start containers
+
 ```
-$ docker-compose up
+$ docker-compose up --build
+```
+
+#### Stop containers
+```
+$ docker-compose down
 ```
 
 ### Development configuration
+#### Build and start containers
 
-This is the base configuration with the addition of the storybook component.
+This is the base configuration with the addition of the storybook component. Before running ensure you enter each submodule directory and follow the instructions for installing dependencies.
 ```
-$ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+$ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+```
+
+#### Stop containers
+```
+$ docker-compose -f docker-compose.yml -f docker-compose.dev.yml down
 ```
