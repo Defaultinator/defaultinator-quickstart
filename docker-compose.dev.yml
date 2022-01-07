@@ -6,18 +6,24 @@ services:
       - "3001:3001"
     environment:
       - DATABASE_URI=mongodb://mongo:27017/defaultinator
+    volumes:
+      - ./defaultinator-api/api:/app
   ui:
     build: ./defaultinator-ui
     ports:
       - "3000:3000"
     environment:
       - API_BASE_URI=http://api
+    volumes:
+      - ./defaultinator-ui:/app
   storybook:
     image: defaultinator-ui
     build: ./defaultinator-ui
     command: ["storybook"]
     ports:
       - "6006:6006"
+    volumes:
+      - ./defaultinator-ui:/app
   mongo:
     ports:
       - "27017:27017"
